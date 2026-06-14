@@ -19,6 +19,22 @@ class ProductController {
        }
     }
 
+    // get product 
+
+     async getAllProduct (req,res) {
+       try{
+        const product = await Product.find()
+        res.status(200).json({
+            message:"Product get Sucessfully",
+            sucess:true,
+            data:product
+        })
+       }
+       catch(err){
+        console.log(err)
+       }
+    }
+
 }
 
 module.exports = new ProductController()
